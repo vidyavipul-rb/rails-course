@@ -12,5 +12,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "application#hello"
   get 'about', to: 'pages#about'
-  resources :articles
+  resources :articles, only: [:show, :index]
+#   Prefix         Verb    URI Pattern                  Controller#Action
+# articles       GET     /articles                    articles#index
+#                POST    /articles                    articles#create
+# new_article    GET     /articles/new                articles#new
+# edit_article   GET     /articles/:id/edit           articles#edit
+# article        GET     /articles/:id                articles#show
+#                PATCH   /articles/:id                articles#update
+#                PUT     /articles/:id                articles#update
+#                DELETE  /articles/:id                articles#destroy
 end
