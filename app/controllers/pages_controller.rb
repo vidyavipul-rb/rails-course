@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
-    def about
-        @value = "Ammar"
-    end
+  def about
+  end
+
+  def home 
+  end
+
 end
