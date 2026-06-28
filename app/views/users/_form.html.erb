@@ -22,7 +22,7 @@
 
   <div class="field">
     <%= f.label :password, class: "field__label" %>
-    <%= f.password_field :password, class: "field__control", placeholder: "Create a password" %>
+    <%= f.password_field :password, class: "field__control", placeholder: "Choose a password" %>
   </div>
 
   <div class="field">
@@ -31,6 +31,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit "Create account", class: "button button--primary" %>
+    <%= f.submit(@user.new_record? ? "Create account" : "Update account", class: "button button--primary") %>
   </div>
 <% end %>
