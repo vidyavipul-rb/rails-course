@@ -1,0 +1,39 @@
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Articles</p>
+        <h1 class="section-title">Published posts in a clean card layout.</h1>
+        <p class="prose">Edit, update, and delete articles from one focused view.</p>
+    </div>
+
+    <%= link_to "Create new article", new_article_path, class: "button button--primary" %>
+</section>
+
+<% if @articles.any? %>
+    <div class="article-grid">
+        <% @articles.each do |article| %>
+            <article class="article-card">
+                <div class="article-card__header">
+                    <div>
+                        <p class="article-card__meta">By <%= article.user&.username || "Unknown author" %></p>
+                        <h2 class="article-card__title"><%= article.title %></h2>
+                    </div>
+                    <span class="article-card__badge">Article</span>
+                </div>
+
+                <p class="article-card__description"><%= truncate(article.description, length: 140) %></p>
+
+                <div class="article-card__actions">
+                    <%= link_to "Read", article_path(article), class: "button button--ghost button--small" %>
+                    <%= link_to "Edit", edit_article_path(article), class: "button button--soft button--small" %>
+                    <%= link_to "Delete", article_path(article), class: "button button--danger button--small", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                </div>
+            </article>
+        <% end %>
+    </div>
+<% else %>
+    <div class="empty-state">
+        <h2>No articles yet</h2>
+        <p>Create the first post to get this blog moving.</p>
+        <%= link_to "Create new article", new_article_path, class: "button button--primary" %>
+    </div>
+<% end %>
