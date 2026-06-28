@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
   get 'about', to: 'pages#about'
+  get 'signup', to: 'users#new'
+  resources :users
   resources :articles
   
 #   Prefix         Verb    URI Pattern                  Controller#Action

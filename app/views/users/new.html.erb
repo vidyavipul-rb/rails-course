@@ -1,0 +1,32 @@
+<% provide(:title, "Sign Up") %>
+
+<section class="hero">
+	<div class="hero__content">
+		<p class="eyebrow">Create your account</p>
+		<h1 class="hero__title">Join the blog and start sharing ideas.</h1>
+		<p class="hero__lead">
+			Create a profile to publish articles, keep your writing organized, and bring a consistent author name to every post.
+		</p>
+
+		<div class="hero__panel">
+			<div class="stat-card">
+				<span class="stat-card__label">Why sign up</span>
+				<strong>Publish with your own identity</strong>
+				<p>Your username becomes the public author name on every article.</p>
+			</div>
+			<div class="stat-card stat-card--accent">
+				<span class="stat-card__label">Account security</span>
+				<strong>Passwords are stored securely</strong>
+				<p>The backend uses Rails' secure password flow, so the form needs only a normal password and confirmation.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="content-card content-card--narrow">
+		<p class="eyebrow">Sign up for Blog</p>
+		<h2 class="section-title">Create your profile</h2>
+		<p class="prose">Use a username, email, and password to create your account.</p>
+
+		<%= render "users/form" %>
+	</div>
+</section>

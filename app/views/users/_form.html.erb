@@ -1,0 +1,36 @@
+<% if @user.errors.any? %>
+  <div class="form-errors">
+    <h2>The following errors prevented the account from being created</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @user, local: true, class: "article-form") do |f| %>
+  <div class="field">
+    <%= f.label :username, class: "field__label" %>
+    <%= f.text_field :username, class: "field__control", placeholder: "Choose a public username" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, class: "field__label" %>
+    <%= f.email_field :email, class: "field__control", placeholder: "you@example.com" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class: "field__label" %>
+    <%= f.password_field :password, class: "field__control", placeholder: "Create a password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, class: "field__label" %>
+    <%= f.password_field :password_confirmation, class: "field__control", placeholder: "Repeat your password" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Create account", class: "button button--primary" %>
+  </div>
+<% end %>
