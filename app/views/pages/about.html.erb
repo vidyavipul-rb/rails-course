@@ -1,6 +1,14 @@
-<h1>This is an About page</h1>
+<% provide(:title, "About") %>
 
-<p>
-    <%= link_to 'Articles Listing', articles_path %> |
-    <%= link_to 'Home', root_path %>
-</p>
+<section class="content-card content-card--narrow">
+    <p class="eyebrow">About this app</p>
+    <h1 class="section-title">A lightweight blog frontend on top of the existing Rails backend.</h1>
+    <p class="prose">
+        The focus here is presentation: a cleaner layout, better spacing, stronger hierarchy, and predictable navigation for the current articles workflow.
+    </p>
+
+    <div class="inline-actions">
+        <%= link_to "Back to articles", articles_path, class: "button button--primary" %>
+        <%= link_to "Home", root_path, class: "button button--ghost" %>
+    </div>
+</section>

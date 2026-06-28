@@ -1,8 +1,31 @@
-<h1>This is a Home Page.</h1>
+<% provide(:title, "Home") %>
 
-<p>
-    <%= link_to 'Articles Listing', articles_path %> |
-    <%= link_to 'About', about_path %>
-</p>
+<section class="hero">
+    <div class="hero__content">
+        <p class="eyebrow">Simple publishing workspace</p>
+        <h1 class="hero__title">Write, publish, and manage articles with a clean interface.</h1>
+        <p class="hero__lead">
+            This Rails app keeps the backend intact while giving your articles a polished reading and editing experience.
+        </p>
+
+        <div class="hero__actions">
+            <%= link_to "Browse articles", articles_path, class: "button button--primary" %>
+            <%= link_to "Learn more", about_path, class: "button button--ghost" %>
+        </div>
+    </div>
+
+    <div class="hero__panel">
+        <div class="stat-card">
+            <span class="stat-card__label">Content ready</span>
+            <strong>Articles, authors, and validation</strong>
+            <p>Designed to make your existing CRUD flow feel more like a real product.</p>
+        </div>
+        <div class="stat-card stat-card--accent">
+            <span class="stat-card__label">Focused UI</span>
+            <strong>Readable, responsive, and fast</strong>
+            <p>Works on desktop and mobile without changing any controller logic.</p>
+        </div>
+    </div>
+</section>
 
 

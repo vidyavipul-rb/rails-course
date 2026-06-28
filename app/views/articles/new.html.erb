@@ -1,5 +1,13 @@
-<h1>Create a new article</h1>
+<% provide(:title, "New Article") %>
 
-<%= render 'form' %>
+<section class="content-card content-card--narrow">
+	<p class="eyebrow">Create article</p>
+	<h1 class="section-title">Start a new post</h1>
+	<p class="prose">Keep the form short and focused. Validation messages will appear here if the content is incomplete.</p>
 
-<%= link_to 'Return to Articles Listing', articles_path %>
+	<%= render "articles/form" %>
+
+	<div class="inline-actions">
+		<%= link_to "Back to articles", articles_path, class: "button button--ghost" %>
+	</div>
+</section>

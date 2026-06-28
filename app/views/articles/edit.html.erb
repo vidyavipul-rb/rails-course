@@ -1,6 +1,14 @@
-<h1>Edit an existing article</h1>
+<% provide(:title, "Edit Article") %>
 
-<%= render 'form' %>
+<section class="content-card content-card--narrow">
+	<p class="eyebrow">Edit article</p>
+	<h1 class="section-title">Update the article</h1>
+	<p class="prose">Adjust the title or description and save changes when you are ready.</p>
 
-<%= link_to 'Cancel and return to articles listing', articles_path %>
-<%= link_to 'Home', root_path %>
+	<%= render "articles/form" %>
+
+	<div class="inline-actions">
+		<%= link_to "Cancel", article_path(@article), class: "button button--ghost" %>
+		<%= link_to "Back to articles", articles_path, class: "button button--soft" %>
+	</div>
+</section>

@@ -23,8 +23,29 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= render "layouts/messages" %>
-    <%= yield %>
+  <body class="app-shell">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <%= link_to root_path, class: "brand" do %>
+          <span class="brand__mark">B</span>
+          <span>
+            <span class="brand__name">Blog</span>
+            <span class="brand__tagline">Thoughts, notes, and stories</span>
+          </span>
+        <% end %>
+
+        <nav class="site-nav" aria-label="Primary">
+          <%= link_to "Home", root_path, class: "site-nav__link" %>
+          <%= link_to "Articles", articles_path, class: "site-nav__link" %>
+          <%= link_to "About", about_path, class: "site-nav__link" %>
+          <%= link_to "New article", new_article_path, class: "button button--small button--primary" %>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-wrap">
+      <%= render "layouts/messages" %>
+      <%= yield %>
+    </main>
   </body>
 </html>
