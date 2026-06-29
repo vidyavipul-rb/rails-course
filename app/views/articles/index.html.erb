@@ -39,3 +39,5 @@
         <%= link_to "Create new article", new_article_path, class: "button button--primary" %>
     </div>
 <% end %>
+
+<%= will_paginate @articles %>

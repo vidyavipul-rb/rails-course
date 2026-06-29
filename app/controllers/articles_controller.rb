@@ -1,13 +1,12 @@
 class ArticlesController < ApplicationController
-  
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [ :show, :edit, :update, :destroy ]
 
 
   def show
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 3)
   end
 
   def new
@@ -33,7 +32,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article was updated successfully."
       redirect_to @article
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -41,7 +40,7 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_path
   end
-  
+
   private
   def set_article
     @article = Article.find(params[:id])
@@ -50,5 +49,4 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :description)
   end
-
 end

@@ -10,38 +10,37 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   # Defines the root path route ("/")
   root "pages#home"
-  get 'about', to: 'pages#about'
-  get 'signup', to: 'users#new'
+  get "about", to: "pages#about"
+  get "signup", to: "users#new"
   resources :users
   resources :articles
-  
-#   Prefix         Verb    URI Pattern                  Controller#Action
-# articles       GET     /articles                    articles#index
-#                POST    /articles                    articles#create
-# new_article    GET     /articles/new                articles#new
-# edit_article   GET     /articles/:id/edit           articles#edit
-# article        GET     /articles/:id                articles#show
-#                PATCH   /articles/:id                articles#update
-#                PUT     /articles/:id                articles#update
-#                DELETE  /articles/:id                articles#destroy
 
-# Controller#Action | users#new
-# Prefix            | users
-# URI               | /users(.:format)
-# Controller#Action | users#index
-# URI               | /users(.:format)
-# Controller#Action | users#create
-# URI               | /users/new(.:format)
-# Controller#Action | users#new
-# URI               | /users/:id/edit(.:format)
-# Controller#Action | users#edit
-# URI               | /users/:id(.:format)
-# Controller#Action | users#show
-# URI               | /users/:id(.:format)
-# Controller#Action | users#update
-# URI               | /users/:id(.:format)
-# Controller#Action | users#update
-# URI               | /users/:id(.:format)
-# Controller#Action | users#destroy
+  #   Prefix         Verb    URI Pattern                  Controller#Action
+  # articles       GET     /articles                    articles#index
+  #                POST    /articles                    articles#create
+  # new_article    GET     /articles/new                articles#new
+  # edit_article   GET     /articles/:id/edit           articles#edit
+  # article        GET     /articles/:id                articles#show
+  #                PATCH   /articles/:id                articles#update
+  #                PUT     /articles/:id                articles#update
+  #                DELETE  /articles/:id                articles#destroy
 
+  # Controller#Action | users#new
+  # Prefix            | users
+  # URI               | /users(.:format)
+  # Controller#Action | users#index
+  # URI               | /users(.:format)
+  # Controller#Action | users#create
+  # URI               | /users/new(.:format)
+  # Controller#Action | users#new
+  # URI               | /users/:id/edit(.:format)
+  # Controller#Action | users#edit
+  # URI               | /users/:id(.:format)
+  # Controller#Action | users#show
+  # URI               | /users/:id(.:format)
+  # Controller#Action | users#update
+  # URI               | /users/:id(.:format)
+  # Controller#Action | users#update
+  # URI               | /users/:id(.:format)
+  # Controller#Action | users#destroy
 end

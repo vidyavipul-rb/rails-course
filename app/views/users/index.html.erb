@@ -1,0 +1,42 @@
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Bloggers</p>
+        <h1 class="section-title">All Users in the application.</h1>
+        <p class="prose">Browse all bloggers who have signed up.</p>
+    </div>
+
+    <%= link_to "Sign up", new_user_path, class: "button button--primary" %>
+</section>
+
+<% if @users.any? %>
+    <div class="article-grid">
+        <% @users.each do |user| %>
+            <article class="article-card">
+                <div class="article-card__header">
+                    <div>
+                        <p class="article-card__meta">Joined <%= time_ago_in_words(user.created_at) if user.respond_to?(:created_at) && user.created_at %> ago</p>
+                        <h2 class="article-card__title"><%= user.username %></h2>
+                    </div>
+                    <span class="article-card__badge">Blogger</span>
+                </div>
+
+                <p class="article-card__description">
+                    <%= pluralize(user.articles.count, "article") if user.respond_to?(:articles) %>
+                </p>
+
+                <div class="article-card__actions">
+                    <%= link_to "View profile", user_path(user), class: "button button--ghost button--small" %>
+                    <%= link_to "Edit profile", edit_user_path(user), class: "button button--soft button--small" %>
+                </div>
+            </article>
+        <% end %>
+    </div>
+<% else %>
+    <div class="empty-state">
+        <h2>No bloggers yet</h2>
+        <p>There are no bloggers in the application yet.</p>
+        <%= link_to "Sign up", new_user_path, class: "button button--primary" %>
+    </div>
+<% end %>
+
+<%= will_paginate @users %>
